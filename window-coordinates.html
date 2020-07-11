@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .special {
+        width: 300px;
+        height: 200px;
+        padding: 20px;
+        background-color: cyan;
+      }
+      div {
+        width: 300px;
+        height: 200px;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 10px;
+        background-color: bisque;
+      }
+
+      .button {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="button">
+      <button class="scroll-by">Scroll by 100px(y)</button>
+      <button class="scroll-to">Scroll to 100px(y)</button>
+      <button class="scroll-into">Scroll into special</button>
+    </aside>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="special"></div>
+    <script>
+      const special = document.querySelector('.special');
+      special.addEventListener('dblclick', () => {
+        const rect = special.getBoundingClientRect();
+        // const animate = special.animate();
+        console.log(rect);
+        console.log(`clientX : ${event.clientX}, clientY : ${event.clientY}`);
+        console.log(`page : ${event.pageX}, page : ${event.pageY}`);
+        console.log(`page X: ${pageXOffset}, page Y: ${pageYOffset}`);
+      });
+    </script>
+    <script>
+      const scrollBy = document.querySelector('.scroll-by');
+      const scrollTo = document.querySelector('.scroll-to');
+      const scrollInto = document.querySelector('.scroll-into');
+      const rect_scrollBy = scrollBy.getBoundingClientRect();
+      const rect_scrollTo = scrollTo.getBoundingClientRect();
+      const rect_scrollInto = scrollInto.getBoundingClientRect();
+      scrollBy.addEventListener('click', (event) => {
+        window.scrollBy(0, 100);
+      });
+      scrollTo.addEventListener('click', (event) => {
+        window.scrollTo(0, 1300);
+      });
+      scrollInto.addEventListener('click', (event) => {
+        special.scrollIntoView();
+      });
+    </script>
+    <div>
+      <script class="show"></script>
+    </div>
+    <div class="tag2"></div>
+    <div></div>
+    <div></div>
+    <script></script>
+  </body>
+</html>
